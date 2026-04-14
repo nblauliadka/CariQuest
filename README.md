@@ -1,70 +1,72 @@
-# CariQuest
+<div align="center">
+  <h1>🎯 CARIQUEST — USK Student Talent Marketplace</h1>
+  <p><b>Platform Marketplace Talenta Kampus</b> yang menghubungkan <b>Expert</b> dan <b>Seeker</b> di ekosistem Universitas Syiah Kuala melalui sistem <i>bidding</i>, <i>quest tracking</i>, dan <i>secure wallet</i>.</p>
 
-[![Interactive Product Showcase](https://img.shields.io/badge/Live_Demo_%26_Interactive_Preview-0A6C75?style=for-the-badge&logo=vercel&logoColor=white)](https://your-future-showcase-link.com)
-> *Click the badge above to access the Interactive Product Showcase, feature breakdown, and the live web demo of CariQuest.*
+  [![Interactive Preview](https://img.shields.io/badge/Live_Demo_%26_Interactive_Preview-0A6C75?style=for-the-badge&logo=vercel&logoColor=white)](https://link-preview-lu-nanti.com)
+  [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](#)
+  [![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)](#)
+  [![Riverpod](https://img.shields.io/badge/Riverpod-0A0A0A?style=for-the-badge&logo=dart&logoColor=white)](#)
+</div>
+
+<br>
+
+## ✨ What is CariQuest?
+CariQuest adalah aplikasi *mobile cross-platform* yang dibangun sebagai proyek MVP portofolio. Aplikasi ini berjalan secara lokal tanpa cloud. 
+Menghadirkan ekosistem jasa yang cerdas bagi mahasiswa USK melalui pengelolaan proyek komprehensif, fitur *bidding* efisien, dan gamifikasi berorientasi pertumbuhan. Dirancang dengan lapisan *In-Memory Mock Data* sehingga seluruh fitur seperti pelacakan status pesanan, dompet digital, hingga riwayat transaksi dapat dijalankan tanpa memerlukan dependensi backend.
+
+| Role | What they can do |
+|---|---|
+| 🛠️ **Expert** | Melamar quest (bid/apply), mengerjakan pesanan, menerima saldo digital, meningkatkan EXP/Rank, melihat notifikasi *real-time*, dan berkomunikasi via *in-app chat*. |
+| 🔍 **Seeker** | Membuka lowongan project (post quest) dengan detail *jobdesk* dan target *budget*, menyetujui penawaran, mengelola pelacakan tugas dari *pending* hingga *finished*, serta memberi ulasan. |
+| 🛡️ **Admin** | Memoderasi masalah operasional melalui fitur mediasi sengketa (*dispute resolution*) dan memantau akun-akun yang terdaftar dalam platform. |
 
 ---
 
-## 🚀 About CariQuest
-
-**CariQuest** is a premium, high-performance skill and talent marketplace tailored specifically for the Universitas Syiah Kuala (USK) student ecosystem. The platform serves as a secure bridge, connecting **Seekers** (students looking for specific services or help with projects) with **Experts** (talented students offering their skills, from UI/UX design to data analysis). 
-
-Built with modern UI/UX principles in mind, CariQuest delivers a top-tier mobile and web experience featuring fully interactive dashboards, seamless onboarding, robust state management, and real-time status tracking for active quests.
-
-## 🏗 Demo Mock MVP Architecture
-
-To streamline product showcases, portfolio presentations, and rigorous UI/UX testing without the absolute need for complex backend configurations or internet dependencies, this build of CariQuest has been architected as a **100% Offline Local Mock MVP**. 
-
-- **☁️ Zero Cloud Configuration**: All Firebase (`cloud_firestore`, `firebase_auth`, `firebase_storage`) dependencies have been intentionally stripped. No API keys, no Google Services JSONs, no CORS issues on the web!
-- **📦 In-Memory Data Engine**: Uses an isolated singleton `MockData` engine that faithfully emulates remote reactive streams, pagination, and backend-latency.
-- **⚡️ Plug & Play**: Clone the repository and execute `flutter run`. The app will instantly launch fully seeded with realistic test data. Data modifications (bids, chats, and account updates) persist dynamically for the life cycle of the active session.
-
-## 🔐 Built-in Demo Credentials
-
-The pre-seeded demo environment includes the following verified test accounts. All accounts utilize the same secure default password:
-
-| User Role | Email Address | Password | Features |
-| :--- | :--- | :--- | :--- |
-| **🎓 Expert** | `expert@demo.com` | `demo123` | Access to the Expert Dashboard, Quest Feed, Bidding, Portfolio creation. |
-| **🔍 Seeker** | `seeker@demo.com` | `demo123` | Access to Seeker Dashboard, Quest creation, Applicant tracking, Payment mockups. |
-| **🛡 Admin** | `admin@demo.com` | `demo123` | Access to Mediation Console, Transaction validation, User ban features. |
-
-*Note: The login screen also features an interactive tap-to-autofill credential card for rapid testing.*
-
 ## 🛠 Tech Stack
 
-| Category | Technology / Framework |
-| :--- | :--- |
-| **Frontend Framework** | `Flutter` (Cross-platform UI) |
-| **Language** | `Dart` |
-| **State Management** | `flutter_riverpod` (Riverpod 2.x) |
-| **Routing** | `go_router` (Declarative deep-linking) |
-| **Architecture** | `MockData Repository Pattern` (Repository mapping / SOLID principles) |
+| Layer | Technology |
+|---|---|
+| Frontend | Flutter SDK `>=3.3.4`, Dart `<4.0.0` |
+| State | `flutter_riverpod: ^2.5.1`, `riverpod_annotation: ^2.3.5` |
+| Routing | `go_router: ^13.2.0` |
+| Navigation | `flutter_web_plugins/url_strategy.dart` |
+| UI & Animations | `google_fonts`, `lottie`, `flutter_animate`, `shimmer`, `flutter_staggered_grid_view` |
+| Database | MockData Engine (In-memory, Zero Cloud Config), dengan `shared_preferences: ^2.2.3` |
 
-## 💻 Getting Started (Local Development)
+---
 
-Begin by ensuring Flutter is correctly installed on your machine. All non-essential platform files have been removed, guaranteeing a pristine build environment.
+## 📁 Project Structure
+```text
+cariquest/
+├── pubspec.yaml
+└── lib/
+    ├── auth/           ← General Auth Logic and Global Authentication State
+    ├── core/           ← App Theme, Colors, Enums, Error Handling, and MockData Engine
+    ├── features/       ← Feature-based domains (chat, dispute, expert, notification, payment, profile, quest, rating, seeker, wallet)
+    ├── quest/          ← Dedicated sub-routing/logic specifically for Quest integrations
+    ├── shared/         ← Reusable widgets, app router config, and global data models
+    └── main.dart       ← Application Entry Point & ProviderScope Initialization
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/CariQuest.git
-   cd CariQuest
-   ```
+---
 
-2. **Fetch Dependencies**
-   ```bash
-   flutter pub get
-   ```
+## 🔑 Demo Accounts (Instan Login)
 
-3. **Run the Application**
-   For the best interactive preview (PWA/Web app implementation):
-   ```bash
-   flutter run -d chrome
-   ```
-   *To build a production web bundle for hosting:*
-   ```bash
-   flutter build web
-   ```
+| Role | Email | Password |
+|---|---|---|
+| Expert 🛠️ | `expert@demo.com` | `demo123` |
+| Seeker 🔍 | `seeker@demo.com` | `demo123` |
+
+---
+
+## 🚀 Quick Start — Local MVP
+```bash
+# 1. Install Dependencies
+flutter pub get
+
+# 2. Run the Application in Chrome
+flutter run -d chrome
+```
 
 ---
 *Developed with ❤️ as a modern academic portfolio showcase.*
