@@ -94,5 +94,5 @@ flutter run -d chrome
 
 ---
 <div align="center">
-  <i>Built with ☕ and 🔥 for Universitas Syiah Kuala</i>
+  <i>Developed by Nabil Aulia Dika & Ibnul Jawzy</i>
 </div>
