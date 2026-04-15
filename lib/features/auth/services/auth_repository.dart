@@ -1,5 +1,6 @@
 // lib/features/auth/services/auth_repository.dart
 
+import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/constants/app_enums.dart';

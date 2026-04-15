@@ -1,8 +1,8 @@
 // lib/features/seeker/screens/seeker_settings_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:share_plus/share_plus.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../auth/providers/auth_controller.dart';
 import 'seeker_edit_profile_screen.dart';
@@ -183,9 +183,11 @@ class SeekerSettingsScreen extends ConsumerWidget {
                   icon: Icons.people_outline,
                   title: s.inviteFriends,
                   onTap: () {
-                    Share.share(
-                      'Hei! Coba CariQuest, platform untuk cari expert terbaik. Download sekarang!',
-                      subject: 'CariQuest - Cari Expert Terbaik',
+                    Clipboard.setData(const ClipboardData(
+                      text: 'Hei! Coba CariQuest, platform untuk cari expert terbaik. Download sekarang!',
+                    ));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Link undangan disalin!')),
                     );
                   },
                 ),

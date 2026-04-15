@@ -1,8 +1,8 @@
 // lib/core/mock/mock_data.dart
 
 import 'dart:async';
-import '../../../shared/models/models.dart';
-import '../../core/constants/app_enums.dart';
+import '../../shared/models/models.dart';
+import '../constants/app_enums.dart';
 import 'package:uuid/uuid.dart';
 
 class MockData {

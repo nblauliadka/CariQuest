@@ -9,3 +9,4 @@ export 'withdrawal_model.dart';
 export 'boost_model.dart';
 export 'bid_model.dart';
 export 'chat_model.dart';
+export 'notification_model.dart';

@@ -1,9 +1,9 @@
 // lib/features/expert/screens/expert_profile_menu_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:share_plus/share_plus.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_enums.dart';
 import '../../../shared/widgets/widgets.dart';
@@ -172,9 +172,11 @@ class ExpertProfileMenuScreen extends ConsumerWidget {
                   icon: Icons.people_outline,
                   title: s.inviteFriends,
                   onTap: () {
-                    Share.share(
-                      'Hei! Coba CariQuest, platform untuk cari expert terbaik. Download sekarang!',
-                      subject: 'CariQuest - Cari Expert Terbaik',
+                    Clipboard.setData(const ClipboardData(
+                      text: 'Hei! Coba CariQuest, platform untuk cari expert terbaik. Download sekarang!',
+                    ));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Link undangan disalin!')),
                     );
                   },
                 ),
