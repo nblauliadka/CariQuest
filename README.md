@@ -2,7 +2,7 @@
   <h1>🎯 CARIQUEST — USK Student Talent Marketplace</h1>
   <p><b>Platform Marketplace Talenta Kampus</b> yang menghubungkan <b>Expert</b> dan <b>Seeker</b> di ekosistem Universitas Syiah Kuala melalui sistem <i>bidding</i>, <i>quest tracking</i>, dan <i>secure wallet</i>.</p>
 
-  [![Interactive Preview](https://img.shields.io/badge/Live_Demo_%26_Interactive_Preview-0A6C75?style=for-the-badge&logo=vercel&logoColor=white)](https://link-preview-lu-nanti.com)
+  [![Interactive Preview](https://img.shields.io/badge/Interactive_Preview-Click_Here-0A6C75?style=for-the-badge&logo=netlify&logoColor=white)](https://cariquestpreview.netlify.app)
   [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](#)
   [![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)](#)
   [![Riverpod](https://img.shields.io/badge/Riverpod-0A0A0A?style=for-the-badge&logo=dart&logoColor=white)](#)
