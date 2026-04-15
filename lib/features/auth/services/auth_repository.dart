@@ -20,7 +20,12 @@ class AuthRepository {
   // Dedicated stream controller to emulate FirebaseAuth.authStateChanges
   final _authStateController = StreamController<UserModel?>.broadcast();
   
-  Stream<UserModel?> get authStateChange => _authStateController.stream;
+  // Riverpod/GoRouter listeners might attach *after* `init()` runs (especially on web),
+  // so we must always emit the current value immediately (BehaviorSubject-like).
+  Stream<UserModel?> get authStateChange async* {
+    yield _currentUser;
+    yield* _authStateController.stream;
+  }
 
   UserModel? get currentUser => _currentUser;
 
@@ -31,17 +36,21 @@ class AuthRepository {
     if (savedUid != null) {
       _currentUser = _db.getUser(savedUid);
     }
-    // Emit initial state slightly after initialization to allow listeners to attach
-    Future.microtask(() => _authStateController.add(_currentUser));
   }
 
   Stream<UserModel?> streamUserData(String uid) {
-    return _db.usersStream.map((users) {
-      try {
-        return users.firstWhere((u) => u.uid == uid);
-      } catch (_) {
-        return null;
-      }
+    // Same issue as authStateChange: initial `emitUsers()` can happen before listeners attach.
+    // Emit the current snapshot first, then continue streaming updates.
+    return Stream<UserModel?>.multi((controller) {
+      controller.add(_db.getUser(uid));
+      final sub = _db.usersStream.listen((users) {
+        try {
+          controller.add(users.firstWhere((u) => u.uid == uid));
+        } catch (_) {
+          controller.add(null);
+        }
+      }, onError: controller.addError, onDone: controller.close);
+      controller.onCancel = () => sub.cancel();
     });
   }
 
