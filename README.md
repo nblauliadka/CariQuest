@@ -11,14 +11,24 @@
 <br>
 
 ## ✨ What is CariQuest?
-CariQuest adalah aplikasi *mobile cross-platform* yang dibangun sebagai proyek MVP portofolio. Aplikasi ini berjalan secara lokal tanpa cloud. 
-Menghadirkan ekosistem jasa yang cerdas bagi mahasiswa USK melalui pengelolaan proyek komprehensif, fitur *bidding* efisien, dan gamifikasi berorientasi pertumbuhan. Dirancang dengan lapisan *In-Memory Mock Data* sehingga seluruh fitur seperti pelacakan status pesanan, dompet digital, hingga riwayat transaksi dapat dijalankan tanpa memerlukan dependensi backend.
 
-| Role | What they can do |
+CariQuest adalah aplikasi *mobile cross-platform* berbasis Flutter yang dirancang khusus untuk ekosistem mahasiswa **Universitas Syiah Kuala (USK)**. Aplikasi ini memecahkan masalah distribusi talenta kampus dengan menyediakan *marketplace* jasa yang mempertemukan pencari bantuan tugas/proyek dengan mahasiswa ahli di bidangnya.
+
+| Role | Core Features |
 |---|---|
-| 🛠️ **Expert** | Melamar quest (bid/apply), mengerjakan pesanan, menerima saldo digital, meningkatkan EXP/Rank, melihat notifikasi *real-time*, dan berkomunikasi via *in-app chat*. |
-| 🔍 **Seeker** | Membuka lowongan project (post quest) dengan detail *jobdesk* dan target *budget*, menyetujui penawaran, mengelola pelacakan tugas dari *pending* hingga *finished*, serta memberi ulasan. |
-| 🛡️ **Admin** | Memoderasi masalah operasional melalui fitur mediasi sengketa (*dispute resolution*) dan memantau akun-akun yang terdaftar dalam platform. |
+| 🛠️ **Expert** | Mengelola profil portofolio, melakukan *bidding* pada proyek (Quest), menerima pekerjaan, dan melacak saldo pendapatan di Wallet. |
+| 🔍 **Seeker** | Membuat postingan pekerjaan (Quest), mereview pelamar, memantau *lifecycle* proyek (Pending → Working → Review → Finished), dan memberikan rating. |
+| 🛡️ **Admin** | Memantau seluruh transaksi, melakukan verifikasi pengguna, dan memediasi sengketa (*dispute*) antar mahasiswa. |
+
+---
+
+## 🏗 Demo Mock MVP Architecture
+
+Untuk keperluan *showcase* portofolio yang cepat dan bebas hambatan, versi CariQuest ini dibangun sebagai **100% Offline Local Mock MVP**:
+
+- **☁️ Zero Cloud Configuration**: Seluruh dependensi Firebase (Auth, Firestore, Storage) telah dihapus total. Tidak ada *API keys*, tidak ada *CORS errors*.
+- **📦 In-Memory Data Engine**: Menggunakan sistem `MockData` terisolasi yang mensimulasikan *database real-time*, *latency*, dan *state persistence* selama aplikasi berjalan.
+- **⚡️ Plug & Play**: Aplikasi siap dijalankan secara instan tanpa perlu *setup server*.
 
 ---
 
@@ -26,47 +36,63 @@ Menghadirkan ekosistem jasa yang cerdas bagi mahasiswa USK melalui pengelolaan p
 
 | Layer | Technology |
 |---|---|
-| Frontend | Flutter SDK `>=3.3.4`, Dart `<4.0.0` |
-| State | `flutter_riverpod: ^2.5.1`, `riverpod_annotation: ^2.3.5` |
-| Routing | `go_router: ^13.2.0` |
-| Navigation | `flutter_web_plugins/url_strategy.dart` |
-| UI & Animations | `google_fonts`, `lottie`, `flutter_animate`, `shimmer`, `flutter_staggered_grid_view` |
-| Database | MockData Engine (In-memory, Zero Cloud Config), dengan `shared_preferences: ^2.2.3` |
-
----
-
-## 📁 Project Structure
-```text
-cariquest/
-├── pubspec.yaml
-└── lib/
-    ├── auth/           ← General Auth Logic and Global Authentication State
-    ├── core/           ← App Theme, Colors, Enums, Error Handling, and MockData Engine
-    ├── features/       ← Feature-based domains (chat, dispute, expert, notification, payment, profile, quest, rating, seeker, wallet)
-    ├── quest/          ← Dedicated sub-routing/logic specifically for Quest integrations
-    ├── shared/         ← Reusable widgets, app router config, and global data models
-    └── main.dart       ← Application Entry Point & ProviderScope Initialization
-```
+| **Framework** | Flutter 3.x (Dart 3.3+) |
+| **State Management** | Riverpod 2.x (`StateNotifier` + `StreamProvider`) |
+| **Routing** | `go_router` 13.x (Declarative App Routing) |
+| **Storage Layer** | `shared_preferences` (Sesi login lokal) |
+| **UI & Animations** | Material 3, `flutter_animate`, `lottie` |
 
 ---
 
 ## 🔑 Demo Accounts (Instan Login)
 
-| Role | Email | Password |
+Sistem sudah diisi dengan data akun terverifikasi. Gunakan kredensial di bawah ini untuk mencoba berbagai *role* (semua menggunakan password yang sama):
+
+| Role | Email Login | Password |
 |---|---|---|
-| Expert 🛠️ | `expert@demo.com` | `demo123` |
-| Seeker 🔍 | `seeker@demo.com` | `demo123` |
+| **🎓 Expert** | `expert@demo.com` | `demo123` |
+| **🔍 Seeker** | `seeker@demo.com` | `demo123` |
+| **🛡️ Admin** | `admin@demo.com` | `demo123` |
+
+> *Pro Tip: Layar login sudah dilengkapi tombol "Demo Login" untuk auto-fill.*
 
 ---
 
-## 🚀 Quick Start — Local MVP
-```bash
-# 1. Install Dependencies
-flutter pub get
+## 📁 Project Structure (Feature-First)
 
-# 2. Run the Application in Chrome
+```text
+cariquest/
+├── lib/
+│   ├── core/         ← Tema, Konstanta, dan MockData Engine
+│   ├── features/     ← Modul independen (Auth, Quest, Expert, Seeker, Wallet)
+│   ├── shared/       ← Model global dan Widget UI yang dapat digunakan ulang
+│   └── main.dart     ← Entry point aplikasi tanpa inisialisasi Firebase
+└── pubspec.yaml
+```
+
+---
+
+## 🚀 Quick Start — Local Development
+
+Karena menggunakan sistem *Mock Data*, aplikasi ini sangat ringan dan dioptimalkan untuk berjalan langsung di *browser* laptop Anda.
+
+**1. Clone Repository**
+```bash
+git clone [https://github.com/nblauliadka/cariquest.git](https://github.com/nblauliadka/cariquest.git)
+cd cariquest
+```
+
+**2. Install Dependencies**
+```bash
+flutter pub get
+```
+
+**3. Run the App (Web Mode Recommended)**
+```bash
 flutter run -d chrome
 ```
 
 ---
-*Developed with ❤️ as a modern academic portfolio showcase.*
+<div align="center">
+  <i>Built with ☕ and 🔥 for Universitas Syiah Kuala</i>
+</div>
