@@ -67,7 +67,8 @@ class MockData {
         major: 'Informatika',
         isEmailVerified: true,
         isKtmVerified: true,
-        isKtpVerified: false,
+        // Mock MVP showcase: treat demo accounts as fully verified/active.
+        isKtpVerified: true,
         rank: ExpertRank.skilledWorker,
         expPoints: 1350,
         totalQuestsDone: 12,
@@ -85,7 +86,8 @@ class MockData {
         phone: '08987654321',
         displayName: 'Bunga Pratiwi',
         isEmailVerified: true,
-        isKtmVerified: false,
+        // Mock MVP showcase: treat demo accounts as fully verified/active.
+        isKtmVerified: true,
         isKtpVerified: true,
         createdAt: now.subtract(const Duration(days: 20)),
         lastActive: now,
