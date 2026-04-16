@@ -1,12 +1,11 @@
 <div align="center">
-  <h1>Cari Quest— Synergy Alumni & Mahasiswa</h1>
-  <p><b>Platform kolaborasi karier kampus</b> yang menghubungkan <b>Alumni</b>, <b>Mahasiswa</b>, dan <b>Dosen</b> Universitas Syiah Kuala melalui tiga pilar utama: <i>Magang</i>, <i>Mentorship</i>, dan <i>Riset</i>.</p>
+  <h1>🎯 CARIQUEST — USK Student Talent Marketplace</h1>
+  <p><b>Platform Marketplace Talenta Kampus</b> yang menghubungkan <b>Expert</b> dan <b>Seeker</b> di ekosistem Universitas Syiah Kuala melalui sistem <i>bidding</i>, <i>quest tracking</i>, dan <i>secure wallet</i>.</p>
 
-  [![Interactive Preview](https://img.shields.io/badge/Interactive_Preview-Click_Here-0A6C75?style=for-the-badge&logo=netlify&logoColor=white)](https://cariquestpreview.netlify.app/)
-  [![React](https://img.shields.io/badge/React-%2320232A.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](#)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](#)
-  [![Express.js](https://img.shields.io/badge/Express.js-%23000000.svg?style=for-the-badge&logo=express&logoColor=white)](#)
-  [![SQLite](https://img.shields.io/badge/SQLite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)](#)
+  [![Interactive Preview](https://img.shields.io/badge/Interactive_Preview-Click_Here-0A6C75?style=for-the-badge&logo=netlify&logoColor=white)](https://cariquestpreview.netlify.app)
+  [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](#)
+  [![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)](#)
+  [![Riverpod](https://img.shields.io/badge/Riverpod-0A0A0A?style=for-the-badge&logo=dart&logoColor=white)](#)
 </div>
 
 <br>
