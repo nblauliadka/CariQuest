@@ -1,6 +1,6 @@
 <div align="center">
   <h1>🎯 CARIQUEST - Student Talent Marketplace</h1>
-  <p><b>Platform Marketplace Talenta Kampus</b> yang menghubungkan <b>Expert</b> dan <b>Seeker</b> di ekosistem Universitas Syiah Kuala melalui sistem <i>bidding</i>, <i>quest tracking</i>, dan <i>secure wallet</i>.</p>
+  <p><b>Platform Marketplace Talenta Kampus</b> yang menghubungkan <b>Expert</b> dan <b>Seeker</b> melalui sistem <i>bidding</i>, <i>quest tracking</i>, dan <i>secure wallet</i>.</p>
 
   [![Interactive Preview](https://img.shields.io/badge/Interactive_Preview-Click_Here-0A6C75?style=for-the-badge&logo=netlify&logoColor=white)](https://cariquestpreview.netlify.app)
   [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](#)
